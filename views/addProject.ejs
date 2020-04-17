@@ -1,0 +1,51 @@
+<%- include("./partials/header") %> 
+<link rel="stylesheet" href="/css/projects.css">
+<%- include("./partials/nav") %> 
+
+<div class="container">
+    <div class="addProject">
+        <form action="/postAddProject" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="projectType">Project Type</label>
+                <select name="projectType" id="projectType" class="form-control">
+                    <option value="web">Web</option>
+                    <option value="android">Android</option>
+                    <option value="windows">Windows</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="projectTitle">Project Title</label>
+                <input type="text" class="form-control" name="projectTitle" id="projectTitle">
+            </div>
+            <div class="form-group">
+                <label for="creator">Creator</label>
+                <input type="text" class="form-control" name="creator" id="creator">
+            </div>
+            <div class="form-group">
+                <label for="imageUrl">Image Url</label>
+                <input type="file" name="imageUrl" id="imageUrl">
+            </div>
+            <!-- <div class="form-group">
+                <label for="iconUrl">Icon Url</label>
+                <input type="file" name="iconUrl" id="iconUrl">
+            </div> -->
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" class="form-control" id="description" cols="20" rows="7"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="downloadLink">Download Link</label>
+                <input type="text" class="form-control" name="downloadLink" id="downloadLink">
+            </div>
+            <div class="form-group">
+                <label for="sourceCodeLink">Source Code Link</label>
+                <input type="text" class="form-control" name="sourceCodeLink" id="sourceCodeLink">
+            </div>
+            <div class="from-group">
+                <button class="btn btn-primary form-control">Add Project</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include("./partials/footer") %> 

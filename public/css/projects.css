@@ -1,0 +1,29 @@
+body{
+    background-color: #aaa;
+}
+
+.container{
+    max-width: 90%;
+    margin: 4rem auto 0 auto;
+
+}
+
+.addProject{
+    width: 350px;
+    margin: 0 auto;
+}
+
+.addProject label{
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+
+
+/* =============== */
+/* Footer */
+/* =============== */
+footer{
+    position: relative;
+    bottom: 0;
+}
