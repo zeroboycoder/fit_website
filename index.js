@@ -40,8 +40,8 @@ app.use(
 );
 app.use("/images", express.static("images"));
 
-const MONGO_URI = "mongodb://localhost:27017/fit";
-// const MONGO_URI = "mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/test?retryWrites=true&w=majority"
+// const MONGO_URI = "mongodb://localhost:27017/fit";
+const MONGO_URI = "mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/test?retryWrites=true&w=majority"
 const port = process.env.PORT || 3000;
 
 const routes = require("./routes/routes");
