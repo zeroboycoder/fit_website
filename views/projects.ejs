@@ -1,0 +1,89 @@
+<%- include("./partials/header") %>
+<link rel="stylesheet" href="/css/projects.css"> 
+<%- include("./partials/nav") %> 
+
+<div class="project-body">
+    <div class="container">
+        <h1>Project</h1>
+        <div class="project-textBox">
+            <h1><%=projectType.toUpperCase()%></h1>
+            <p>
+                <a href="/">Home</a> >
+                <a href="/projects?pType=<%=projectType%>"><%=projectType.toUpperCase()%></a>
+            </p>
+        </div>
+        <div class="row">
+            <% projects.forEach(project => { %>
+                <div class="col span-1-of-4 project-box">
+                    <div class="icon-section">
+                        <img src="images/<%=project.iconUrl%>" alt="">
+                    </div>
+                    <p class="caption">
+                        <a href="/projects/<%=project._id%>">
+                            <%=project.projectTitle%>
+                        </a>
+                    </p>
+                </div>                
+            <% }) %> 
+        </div>
+    </div>
+    <div class="pagination-section">
+        <% if(hasPreviousPage){ %>
+            <div class="direction">
+                <a href="?pType=<%=projectType%>&&page=<%=previousPage%>">Previous</a>
+            </div>
+        <% } else{ %>
+            <div class="direction"></div>
+        <% } %> 
+        <div class="pagination">
+            <% if(currentPage != 1 && previousPage != 1){ %>
+                <div>
+                    <a href="?pType=<%=projectType%>&&page=1"
+                        class="paginationLink">
+                        1
+                    </a>
+                </div>
+            <% } %> 
+            <% if(hasPreviousPage){ %>
+                <div>
+                    <a href="?pType=<%=projectType%>&&page=<%=previousPage%>"
+                        class="paginationLink">
+                        <%=previousPage%>
+                    </a>
+                </div>
+            <% } %> 
+            <div>
+                <a href="?pType=<%=projectType%>&&page=<%=currentPage%>"
+                    class="paginationLink paginationLinkActive">
+                    <%=currentPage%>
+                </a>
+            </div>
+            <% if(hasNextPage){ %>
+                <div>
+                    <a href="?pType=<%=projectType%>&&page=<%=nextPage%>"
+                        class="paginationLink">
+                        <%=nextPage%>
+                    </a>
+                </div>
+            <% } %> 
+            <% if(currentPage != lastPage && nextPage != lastPage){ %>
+                <div>
+                    <a href="?pType=<%=projectType%>&&page=<%=lastPage%>"
+                        class="paginationLink">
+                        <%=lastPage%>
+                    </a>
+                </div>
+            <% } %> 
+        </div>
+        <% if(hasNextPage){ %>
+            <div class="direction">
+                <a href="?pType=<%=projectType%>&&page=<%=nextPage%>">Next</a>
+            </div>
+        <% } else{ %>
+            <div class="direction"></div>
+        <% } %>  %> 
+    </div>
+    <div class="projectType"><%=projectType%></div>
+</div>
+
+<%- include("./partials/footer") %> 

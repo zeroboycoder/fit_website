@@ -1,6 +1,7 @@
 </head>
 <body>
 <!-- Header -->
+<div class="test">
 <header>
     <div class="logo">
         <a href="/">
@@ -10,14 +11,22 @@
     <nav>
         <ul>
             <li class="nav-list">
-                <a href="/" class="nav-item">Home</a>
+                <a href="/" class="nav-item <%= route === '/' ? 'active' : '' %> ">Home</a>
             </li>
             <li class="nav-list sub-menu">
-                <a href="#" class="nav-item">Project</a>
+                <a href="" class="nav-item <%= route === '/projects' ? 'active' : '' %> ">Project</a>
                 <ul>
-                    <li><a href="/projects?pname=web">Web</a></li>
-                    <li><a href="/projects?pname=android">Android</a></li>
-                    <li><a href="/projects?pname=windows">Windows</a></li>
+                    <li>
+                        <a href="/projects?pType=web"
+                        
+                        >Web</a>
+                    </li>
+                    <li>
+                        <a href="/projects?pType=android">Android</a>
+                    </li>
+                    <li>
+                        <a href="/projects?pType=windows">Windows</a>
+                    </li>
                 </ul>
             </li>
             <li class="nav-list">
@@ -27,7 +36,7 @@
                 <a href="#" class="nav-item">Contact</a>
             </li>
             <li class="nav-list">
-                <a href="/addProject" class="nav-item">Add Project</a>
+                <a href="/addProject" class="nav-item <%= route === '/addProject' ? 'active' : '' %> ">Add Project</a>
             </li>
         </ul>
     </nav>

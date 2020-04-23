@@ -14,7 +14,7 @@ const t = document.getElementById("text");
 
 const next = () => {
     num++;
-    if(num > images.length-1){
+    if (num > images.length - 1) {
         num = 0;
     }
     img.src = images[num];
@@ -24,8 +24,8 @@ const next = () => {
 
 const pre = () => {
     num--;
-    if(num < 0){
-        num = images.length-1;
+    if (num < 0) {
+        num = images.length - 1;
     }
     img.src = images[num];
     images.alt = text[num];
@@ -33,10 +33,9 @@ const pre = () => {
 }
 
 // Waypoint
-
 const brand = document.querySelector(".brand-wp");
-$(".slider-wp").waypoint(function(direction){
-    if(direction == "down"){
+$("slider").waypoint(function (direction) {
+    if (direction == "down") {
         $("header").addClass("whiteky");
         brand.src = "/photos/brand_black.png";
     } else {
@@ -44,5 +43,22 @@ $(".slider-wp").waypoint(function(direction){
         brand.src = "/photos/brand_white.png";
     }
 }, {
-    offset : "-40px"
+    offset: "-40px"
 })
+
+
+// Project Section background
+const projectType = document.querySelector(".projectType").innerHTML;
+const projectBg = document.querySelector(".project-body");
+const header = document.querySelector("header");
+brand.src = "/photos/brand_black.png";
+header.classList.add("whiteky");
+if (projectType === "web") {
+    projectBg.style.backgroundImage = "url('/photos/project(web).png')";
+}
+if (projectType === "android") {
+    projectBg.style.backgroundImage = "url('/photos/project(android).png')";
+}
+if (projectType === "windows") {
+    projectBg.style.backgroundImage = "url('/photos/project(windows).png')";
+}
