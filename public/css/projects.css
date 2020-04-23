@@ -18,36 +18,21 @@
 	display: none;
 }
 
-.project-box {
-	padding: 2.7rem 0 1.5rem 0;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-shadow: 2px 3px 6px #00000029;
-}
-
-.project-box:hover {
-	box-shadow: 0px 0px 6px #00000060;
-}
-
 .icon-section {
 	width: 110px;
 	height: 110px;
 	margin: 0 auto 1.5rem auto;
-	background-color: #000;
-	border-radius: 50%;
 }
 
 .icon-section img {
 	width: 100%;
 	height: 100%;
-	opacity: 0.8;
 	border-radius: 50%;
 	box-shadow: 5px 5px 6px #00000029;
 	transition: all 0.3s;
 }
 
-.project-box:hover .icon-section img {
-	opacity: 1;
+.icon-section img:hover {
 	transform: scale(1.05);
 }
 
@@ -142,7 +127,6 @@
 	border: 1px solid #084038;
 	border-radius: 50%;
 	margin: 0 10px;
-	padding-top: 3px;
 	display: inline-block;
 }
 
@@ -151,6 +135,7 @@
 	color: #084038;
 	width: 92%;
 	height: 92%;
+	margin-top: 4%;
 	font-size: 115%;
 	border-radius: 50%;
 	display: inline-block;
