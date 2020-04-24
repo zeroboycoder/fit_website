@@ -10,12 +10,7 @@ const fileStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     cb(
-      null,
-      new Date().toISOString().split("T")[0] +
-      "_" +
-      new Date().toTimeString().split(" ")[0] +
-      "_" +
-      file.originalname
+      null, file.originalname
     );
   },
 });
@@ -41,7 +36,7 @@ app.use(
 app.use("/images", express.static("images"));
 
 // const MONGO_URI = "mongodb://localhost:27017/fit";
-const MONGO_URI = "mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/test?retryWrites=true&w=majority"
+const MONGO_URI = "mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/fit"
 const port = process.env.PORT || 3000;
 
 const routes = require("./routes/routes");
