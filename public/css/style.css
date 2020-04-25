@@ -1,7 +1,7 @@
 * {
 	padding: 0;
 	margin: 0;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 html,
@@ -78,8 +78,9 @@ header {
 }
 
 .logo {
-	float: left;
-	height: 50px;
+	position: relative;
+	top: -5px;
+	height: 40px;
     margin-right: 2rem;
     display: inline-block;
 }
@@ -126,6 +127,7 @@ nav ul {
 .nav-list .nav-item {
     font-family: 'Spartan', sans-serif;
     font-size: 95%;
+	font-weight: 600;
 	height: 50px;
 	line-height: 50px;
 	text-decoration: none;
@@ -158,7 +160,7 @@ nav ul {
 }
 
 .nav-list ul li a {
-	color: #000;
+	color: #000547;
 	text-decoration: none;
 	padding: 0 5px 7px 5px;
 	width: 100%;
@@ -173,15 +175,16 @@ nav ul {
 
 /* Whiteky Nav */
 .whiteky {
-	background-color: #e7e7e7;
+	background-color: #fafafa;
+	box-shadow: 0px 3px 6px #00000050;
 }
 
 .whiteky .nav-item {
-	color: #000;
+	color: #000547;
 }
 
 .whiteky nav ul li a {
-	color: #000;
+	color: #000547;
 }
 
 .whiteky nav .nav-list:hover {
@@ -333,8 +336,8 @@ slide:nth-child(4) {
 	font-family: 'Playfair Display', serif;
 	text-align: left;
 	color: #fafafa;
-	line-height: 35px;
-	font-size: 200%;
+	line-height: 45px;
+	font-size: 32px;
 	letter-spacing: 1px;
 	font-weight: 400;
 	margin-bottom: 0.5rem;
@@ -507,7 +510,7 @@ li {
 	display: block;
 	width: 40%;
 	height: auto;
-	margin: 0 auto 2rem auto;
+	margin: 0 auto 2.5rem auto;
 	border: none;
 	border-radius: 25px;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.733);
@@ -557,9 +560,9 @@ li {
 .caption p {
 	font-family: 'Spartan', sans-serif;
 	font-weight: 500;
-	margin-right: 170px;
+	margin-right: 250px;
 	display: inline-block;
-	font-size: 125%;
+	font-size: 145%;
 }
 
 .caption {
@@ -569,7 +572,7 @@ li {
 .caption div {
 	display: inline-block;
 	position: absolute;
-	right: 30%;
+	right: 35%;
 }
 
 .caption div::before {
