@@ -436,6 +436,7 @@ li {
 }
 
 .span-1-of-3:nth-child(1) div {
+	width: 85%;
 	text-align: right;
 	padding: 10px 1rem 10px 4rem;
 	margin-right: 3rem;
@@ -444,7 +445,7 @@ li {
 }
 
 .span-1-of-3:nth-child(1) div p{
-	width: 55%;
+	width: 60%;
 	margin-left: auto;
 }
 
@@ -479,11 +480,8 @@ li {
 .span-1-of-3:nth-child(3) div {
 	text-align: left;
 	padding: 10rem 0 0 5rem;
-	width: 80%;
-}
-
-.span-1-of-3:nth-child(3) div {
 	width: 90%;
+	margin: auto;
 	color: #fafafa;
 }
 
