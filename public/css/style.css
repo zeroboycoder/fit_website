@@ -462,7 +462,7 @@ li {
 	display: block;
 	width: 70px;
 	height: 5px;
-	background-color: #000547;
+	background-color: #084038;
 	margin-bottom: 1rem;
 }
 
@@ -568,7 +568,7 @@ li {
 .caption p {
 	font-family: 'Spartan', sans-serif;
 	font-weight: 500;
-	margin-right: 250px;
+	margin-right: 260px;
 	display: inline-block;
 	font-size: 145%;
 }
@@ -617,7 +617,7 @@ li {
 }
 footer {
 	width: 100%;
-	background-color: #3f3f3f;
+	background-color: #4f4f4f;
 	padding: 2.5rem 0 0 0;
 	position: relative;
 	bottom: 0;
@@ -686,12 +686,13 @@ footer .footerText p:first-of-type {
 }
 
 .copyRight {
-	font-family: 'Playfair Display', serif;
+	background-color: #333;
+	font-family: 'Spartan', sans-serif;
     font-size: 90%;
     font-weight: 400;
 	color: #fafafa;
 	text-align: center;
-	letter-spacing: 0.4px;
-	padding-bottom: 0.5rem;
+	letter-spacing: 0.3px;
+	padding: 0.5rem;
 	margin: 0;
 }
