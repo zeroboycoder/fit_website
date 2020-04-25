@@ -319,7 +319,7 @@ slide:nth-child(4) {
 .textBox {
 	width: 550px;
 	position: absolute;
-	top: 40%;
+	top: 50%;
 	left: 33%;
 }
 
