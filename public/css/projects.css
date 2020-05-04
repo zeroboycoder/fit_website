@@ -1,3 +1,14 @@
+/* Re-useable component */
+.projectRow {
+	text-align: center;
+}
+
+.twelve_of_three {
+	display: inline-block;
+	width: 23%;
+	margin: 1% 0.5% 2% 0.5%;
+}
+
 .project-body {
 	width: 100%;
 	height: auto;

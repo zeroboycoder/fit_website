@@ -3,17 +3,45 @@
 <%- include("./partials/nav") %> 
 
 <div class="projectDetail">
-    <div class="textBox">
+    <!-- Text Box -->
+    <div class="projectDetail__textBox">
         <div class="icon">
             <img src="/images/<%=project.iconUrl%>" alt="">
         </div>
         <div class="text">
             <h2><%=project.projectTitle%> </h2>
-            <h3><%=project.creator%> </h3>
+            <h3>Developer : <%=project.creator%> </h3>
+        </div>
+    </div>
+
+    <!-- Project Image -->
+    <div class="projectDetail__projectImage">
+        <img src="/images/<%=project.imageUrl%>" alt="">
+    </div>
+
+    <!-- Project Description -->
+    <div class="projectDetail__projectDescription">
+        <div class="three_of_twelve">
+            <h3>Description</h3>
+        </div>
+        <div class="nine_of_twelve descriptionText">
+            <div class="stick"></div>
+            <p><%=project.description%></p>
+        </div>
+    </div>
+
+    <!-- Botton -->
+    <div class="projectDetail__button">
+        <div class="three_of_twelve">
+            <div></div>
+        </div>
+        <div class="nine_of_twelve">
+            <a href="<%=project.downloadLink%>" target="_blank" class="btn btn_orange">Download</a> <br />
+            <a href="<%=project.sourceCodeLink%>" target="_blank" class="btn btn_green">Source Code</a>
         </div>
     </div>
 </div>
 
 <!-- For nav bar -->
-<div class="projectType">web</div>
+<div class="projectType" style="display: none;">web</div>
 <%- include("./partials/footer") %> 
