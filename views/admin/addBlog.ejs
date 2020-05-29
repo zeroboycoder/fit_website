@@ -1,0 +1,16 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/resources/addBlog.css"> 
+<%- include("../partials/nav") %> 
+
+<form action="/admin/add-blog" method="POST">
+    <h2>Add Your Ideal Post</h2>
+    <div class="form-group">
+        <textarea name="script" class="form-control" cols="30" rows="15" placeholder="Text..."></textarea>
+    </div>
+    <div class="button">
+        <button class="btn btn-info">Post</button>
+    </div>
+</form>
+<!-- For nav bar -->
+<script src="/js/nav_fix.js"></script>
+<%- include("../partials/bootstrapFooter") %> 

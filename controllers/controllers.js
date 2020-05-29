@@ -1,4 +1,5 @@
 const projectDatas = require("../models/projectModel");
+const blogModel = require("../models/blogModel")
 
 // Index Page
 exports.getIndex = (req, res) => {
@@ -7,43 +8,6 @@ exports.getIndex = (req, res) => {
     route: "/",
   });
 };
-
-
-// Get Add Project
-exports.getAddProject = (req, res, next) => {
-  res.render("views/addProject", {
-    title: "Add Project",
-    route: "/addProject",
-  });
-};
-
-// Post Add Project
-exports.postAddProject = (req, res) => {
-  const projectType = req.body.projectType;
-  const projectTitle = req.body.projectTitle;
-  const creator = req.body.creator;
-  let iconUrl = req.files[0].filename;
-  let imageUrl = req.files[1].filename;
-  const description = req.body.description;
-  const downloadLink = req.body.downloadLink;
-  const sourceCodeLink = req.body.sourceCodeLink;
-  return new projectDatas({
-    projectType: projectType,
-    projectTitle: projectTitle,
-    creator: creator,
-    iconUrl: iconUrl,
-    imageUrl: imageUrl,
-    description: description,
-    downloadLink: downloadLink,
-    sourceCodeLink: sourceCodeLink,
-  })
-    .save()
-    .then(() => res.redirect("/projects?pType=" + projectType))
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 
 // Get Projects Page
 exports.getProjects = (req, res) => {
@@ -93,18 +57,19 @@ exports.getProjectDetail = (req, res, next) => {
     })
 }
 
-// Get Add Blog
-exports.getAddBlog = (req, res, next) => {
-  res.render("views/addBlog", {
-    title: "Blog",
-    route: "/add-blog"
-  })
-}
 
 // Get Blog
 exports.getBlog = (req, res, next) => {
-  res.render("views/blog", {
-    title: "Blog",
-    route: "/blog"
-  })
+  res.setHeader(
+    "Content-Type", "application/json"
+  )
+  blogModel.find()
+    .then(posts => {
+      res.render("views/blog", {
+        title: "Blogs",
+        route: "/blog",
+        posts: posts
+      })
+    })
+    .catch(err => new Error("Error in get blog"));
 }

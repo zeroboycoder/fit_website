@@ -28,17 +28,17 @@
                 </ul>
             </li>
             <li class="nav-list">
-                <a href="/blog" class="nav-item <%= route === '/blog' ? 'active' : '' %> ">BLOG</a>
+                <a href="#" class="nav-item <%= route === '/blog' ? 'active' : '' %> ">BLOG</a>
             </li>
             <li class="nav-list">
                 <a href="#" class="nav-item">CONTACT</a>
             </li>
             <% if(isAuthenticated){ %>
                 <li class="nav-list">
-                    <a href="/add-project" class="nav-item <%= route === '/addProject' ? 'active' : '' %> ">ADD PROJECT</a style="margin-left: auto;">
+                    <a href="/admin/add-project" class="nav-item <%= route === '/addProject' ? 'active' : '' %> ">ADD PROJECT</a style="margin-left: auto;">
                 </li>
                 <li class="nav-list">
-                    <a href="/add-blog" class="nav-item <%= route === '/add-blog' ? 'active' : '' %> ">ADD BLOG</a>
+                    <a href="/admin/add-blog" class="nav-item <%= route === '/add-blog' ? 'active' : '' %> ">ADD BLOG</a>
                 </li>
             <% } %> 
             <div style="margin-left: auto; margin-right: 0; display: flex;">
