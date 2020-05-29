@@ -74,3 +74,11 @@ exports.postLogin = (req, res, next) => {
         })
         .catch(err => new Error("Error in user find."))
 }
+
+// GET Logout
+exports.getLogout = (req, res, next) => {
+    req.session.destroy(err => {
+        if (err) console.log(err)
+        else res.redirect("/");
+    })
+}

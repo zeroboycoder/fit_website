@@ -14,4 +14,6 @@ route.get("/login", authController.getLogin);
 // POST Log in
 route.post("/login", authController.postLogin);
 
+// GET Log out
+route.get("/logout", authController.getLogout);
 module.exports = route;
