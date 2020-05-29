@@ -2,16 +2,29 @@ const express = require("express"),
   bodyParser = require("body-parser"),
   app = express(),
   mongoose = require("mongoose"),
-  multer = require("multer");
+  session = require("express-session"),
+  mongoStore = require("connect-mongodb-session")(session);
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use("/images", express.static("images"));
 
-
 const MONGO_URI = "mongodb://localhost:27017/fit";
 // const MONGO_URI = "mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/fit"
+
+const stroe = new mongoStore({
+  uri: MONGO_URI,
+  collection: "session"
+})
+
+app.use(session({
+  secret: "FIT WEBSITE",
+  resave: false,
+  saveUninitialized: false,
+  stroe: stroe
+}))
+
 const port = process.env.PORT || 3000;
 
 const routes = require("./routes/routes");
