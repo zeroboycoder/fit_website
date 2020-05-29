@@ -29,6 +29,11 @@ const port = process.env.PORT || 3000;
 
 const routes = require("./routes/routes");
 const authRoutes = require("./routes/authRoute");
+
+app.use((req, res, next) => {
+  console.log(req.session)
+})
+
 app.use("/", routes);
 app.use("/auth/", authRoutes)
 
