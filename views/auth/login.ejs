@@ -2,19 +2,13 @@
 <link rel="stylesheet" href="/css/resources/signUp.css">
 <%- include("../partials/nav") %> 
 
-<form action="/auth/sign-up" method="POST">
-    <h2>Sign Up</h2>
-    <div class="form-group">
-        <input type="text" class="form-control" name="username" placeholder="User name" />
-    </div>
+<form action="/auth/login" method="POST">
+    <h2>Log in</h2>
     <div class="form-group">
         <input type="email" class="form-control" name="email" placeholder="Email" />
     </div>
     <div class="form-group">
         <input type="password" class="form-control" name="password" placeholder="Password" />
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control" name="c_password" placeholder="Confirm Password" />
     </div>
     <div class="form-group">
         <input type="submit" class="form-control btn btn-primary" value="Sign Up" />

@@ -1,9 +1,12 @@
 form {
 	width: 380px;
-	margin: 0 auto;
-	padding: 10px 15px;
+	margin: 10px auto;
+	padding: 10px 20px;
 	margin-top: 115px;
 	box-sizing: border-box;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	box-shadow: 2px 2px 4px #ddd;
 }
 
 form h2 {

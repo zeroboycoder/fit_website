@@ -13,7 +13,7 @@ app.use("/images", express.static("images"));
 const MONGO_URI = "mongodb://localhost:27017/fit";
 // const MONGO_URI = "mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/fit"
 
-const stroe = new mongoStore({
+const store = new mongoStore({
   uri: MONGO_URI,
   collection: "session"
 })
@@ -22,7 +22,7 @@ app.use(session({
   secret: "FIT WEBSITE",
   resave: false,
   saveUninitialized: false,
-  stroe: stroe
+  store: store
 }))
 
 const port = process.env.PORT || 3000;
@@ -31,12 +31,13 @@ const routes = require("./routes/routes");
 const authRoutes = require("./routes/authRoute");
 
 app.use((req, res, next) => {
-  console.log(req.session)
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  res.locals.user = req.session.user;
+  next();
 })
 
 app.use("/", routes);
 app.use("/auth/", authRoutes)
-
 app.use((req, res, next) => {
   res.status(404).render("views/404", {
     title: "404",

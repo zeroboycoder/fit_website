@@ -13,7 +13,6 @@ const authSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    avatar: String,
     blogs: [{
         blogId: {
             type: mongoose.Schema.Types.ObjectId,
