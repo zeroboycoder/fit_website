@@ -46,19 +46,17 @@ $("slider").waypoint(function (direction) {
     offset: "-40px"
 })
 
+// Back to top
+const body = document.getElementsByTagName("body");
+const btt = document.querySelector(".back-to-top");
+$("body").waypoint(function (direction) {
+    if (direction == "down") {
+        btt.style.display = "block";
+    } else {
+        btt.style.display = "none";
+    }
+}, {
+    offset: "-100px"
+})
 
-// Project Section background
-const projectType = document.querySelector(".projectType").innerHTML;
-const projectBg = document.querySelector(".project-body");
-const header = document.querySelector("header");
-brand.src = "/photos/brand_black.png";
-header.classList.add("whiteky");
-if (projectType === "web") {
-    projectBg.style.backgroundImage = "url('/photos/project(web).png')";
-}
-if (projectType === "android") {
-    projectBg.style.backgroundImage = "url('/photos/project(android).png')";
-}
-if (projectType === "windows") {
-    projectBg.style.backgroundImage = "url('/photos/project(windows).png')";
-}
+

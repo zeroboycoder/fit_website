@@ -2,7 +2,7 @@ const projectDatas = require("../models/projectModel");
 
 // Index Page
 exports.getIndex = (req, res) => {
-  res.render("index", {
+  res.render("views/index", {
     title: "Future Information Technology",
     route: "/",
   });
@@ -11,7 +11,7 @@ exports.getIndex = (req, res) => {
 
 // Get Add Project
 exports.getAddProject = (req, res, next) => {
-  res.render("addProject", {
+  res.render("views/addProject", {
     title: "Add Project",
     route: "/addProject",
   });
@@ -59,7 +59,7 @@ exports.getProjects = (req, res) => {
       return projectDatas.find({ projectType: projectType }).skip((page - 1) * itemsPerPage).limit(itemsPerPage)
     })
     .then((projects) => {
-      res.render("projects", {
+      res.render("views/projects", {
         title: "Projects Section",
         projectType: projectType,
         projects: projects,
@@ -82,7 +82,7 @@ exports.getProjectDetail = (req, res, next) => {
   const projectId = req.params.projectId;
   projectDatas.findById(projectId)
     .then(project => {
-      res.render("projectDetail", {
+      res.render("views/projectDetail", {
         title: project.projectTitle,
         route: "/projects",
         project: project
@@ -91,4 +91,20 @@ exports.getProjectDetail = (req, res, next) => {
     .catch(err => {
       throw new Error("Error in getProjectDetail");
     })
+}
+
+// Get Add Blog
+exports.getAddBlog = (req, res, next) => {
+  res.render("views/addBlog", {
+    title: "Blog",
+    route: "/add-blog"
+  })
+}
+
+// Get Blog
+exports.getBlog = (req, res, next) => {
+  res.render("views/blog", {
+    title: "Blog",
+    route: "/blog"
+  })
 }

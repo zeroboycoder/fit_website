@@ -1,9 +1,9 @@
-<%- include("./partials/header") %> 
-<%- include("./partials/nav") %> 
+<%- include("../partials/header") %> 
+<%- include("../partials/nav") %> 
 
 <!-- Image Section -->
 
-<div class="slider">
+<div class="slider" id="top">
     <!-- Image Slider -->
     <slider>
         <slide></slide>
@@ -76,5 +76,12 @@
     </div>
 </div>
 
+<div class="back-to-top">
+    <a href="#top"><i class="fas fa-arrow-up"></i></a>
+</div>
 
-<%- include("./partials/footer") %> 
+
+<script src="/js/vendor/jquery-3.5.0.min.js"></script>
+<script src="/js/vendor/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.js"></script>
+<%- include("../partials/footer") %> 

@@ -1,6 +1,6 @@
-<%- include("./partials/header") %>
-<link rel="stylesheet" href="/css/projects.css"> 
-<%- include("./partials/nav") %> 
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/resources/projects.css"> 
+<%- include("../partials/nav") %> 
 
 <div class="project-body">
     <div class="container">
@@ -16,7 +16,7 @@
             <% projects.forEach(project => { %>
                 <div class="twelve_of_three">
                     <div class="icon-section">
-                        <img src="images/<%=project.iconUrl%>" alt="">
+                        <img src="images/projects/<%=project.iconUrl%>" alt="">
                     </div>
                     <p class="caption">
                         <a href="/projects/<%=project._id%>">
@@ -28,6 +28,7 @@
         </div>
     </div>
     <div class="pagination-section">
+        <!-- Previous Button -->
         <% if(hasPreviousPage){ %>
             <div class="direction">
                 <a href="?pType=<%=projectType%>&&page=<%=previousPage%>">Previous</a>
@@ -35,6 +36,7 @@
         <% } else{ %>
             <div class="direction"></div>
         <% } %> 
+        <!-- Pagination Link -->
         <div class="pagination">
             <% if(currentPage != 1 && previousPage != 1){ %>
                 <div>
@@ -66,7 +68,7 @@
                     </a>
                 </div>
             <% } %> 
-            <% if(currentPage != lastPage && nextPage != lastPage){ %>
+            <% if(currentPage != lastPage && nextPage != lastPage && lastPage !== 0){ %>
                 <div>
                     <a href="?pType=<%=projectType%>&&page=<%=lastPage%>"
                         class="paginationLink">
@@ -75,6 +77,7 @@
                 </div>
             <% } %> 
         </div>
+        <!-- Next Button -->
         <% if(hasNextPage){ %>
             <div class="direction">
                 <a href="?pType=<%=projectType%>&&page=<%=nextPage%>">Next</a>
@@ -86,4 +89,5 @@
     <div class="projectType"><%=projectType%></div>
 </div>
 
-<%- include("./partials/footer") %> 
+<script src="/js/project.js"></script>
+<%- include("../partials/footer") %> 

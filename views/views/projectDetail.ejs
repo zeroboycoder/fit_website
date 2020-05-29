@@ -1,12 +1,12 @@
-<%- include("./partials/header") %> 
-<link rel="stylesheet" href="/css/projectDetail.css">
-<%- include("./partials/nav") %> 
+<%- include("../partials/header") %> 
+<link rel="stylesheet" href="/css/resources/projectDetail.css">
+<%- include("../partials/nav") %> 
 
 <div class="projectDetail">
     <!-- Text Box -->
     <div class="projectDetail__textBox">
         <div class="icon">
-            <img src="/images/<%=project.iconUrl%>" alt="">
+            <img src="/images/projects/<%=project.iconUrl%>" alt="">
         </div>
         <div class="text">
             <h2><%=project.projectTitle%> </h2>
@@ -16,7 +16,7 @@
 
     <!-- Project Image -->
     <div class="projectDetail__projectImage">
-        <img src="/images/<%=project.imageUrl%>" alt="">
+        <img src="/images/projects/<%=project.imageUrl%>" alt="">
     </div>
 
     <!-- Project Description -->
@@ -43,5 +43,5 @@
 </div>
 
 <!-- For nav bar -->
-<div class="projectType" style="display: none;">web</div>
-<%- include("./partials/footer") %> 
+<script src="/js/nav_fix.js"></script>
+<%- include("../partials/footer") %> 

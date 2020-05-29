@@ -42,7 +42,7 @@
 
 .text h2::after {
 	width: 100%;
-	height: 1px;
+	height: 2px;
 	color: #084038;
 	margin: 10px 0;
 }

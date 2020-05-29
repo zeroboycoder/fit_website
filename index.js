@@ -4,45 +4,23 @@ const express = require("express"),
   mongoose = require("mongoose"),
   multer = require("multer");
 
-const fileStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images");
-  },
-  filename: (req, file, cb) => {
-    cb(
-      null, file.originalname
-    );
-  },
-});
-
-const fileFilter = (req, file, cb) => {
-  if (
-    file.mimetype === "image/jpg" ||
-    file.mimetype === "image/jpeg" ||
-    file.mimetype === "image/png"
-  ) {
-    cb(null, true);
-  } else {
-    cb(null, false);
-  }
-};
-
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use(
-  multer({ storage: fileStorage, fileFilter: fileFilter }).array("imageUrl", 2)
-);
 app.use("/images", express.static("images"));
 
-// const MONGO_URI = "mongodb://localhost:27017/fit";
-const MONGO_URI = "mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/fit"
+
+const MONGO_URI = "mongodb://localhost:27017/fit";
+// const MONGO_URI = "mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/fit"
 const port = process.env.PORT || 3000;
 
 const routes = require("./routes/routes");
+const authRoutes = require("./routes/authRoute");
 app.use("/", routes);
+app.use("/auth/", authRoutes)
+
 app.use((req, res, next) => {
-  res.status(404).render("404", {
+  res.status(404).render("views/404", {
     title: "404",
   });
 });
