@@ -1,0 +1,24 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/css/resources/blogDetail.css"> 
+<%- include("../partials/nav") %> 
+
+<div class="blog">
+    <div>
+        <img class="blogImg" src="/images/blog/<%=post.imageUrl%>" alt="Blog Image">
+        <h1 class="title"><%=post.title%></h1>
+        <div class="postInfo">
+            <span title="User Name"><%=post.userName%></span>
+            <span title="Category"><%=post.category%></span>
+            <span title="Date"><%=post.time[0]%></span>
+            <span title="Time"><%=post.time[1]%></span>
+        </div>
+        <div>
+            <%-post.script%>
+        </div>
+        <p>Share with : <a href="https://www.facebook.com/sharer/sharer.php?u=https://fit.herokuapp.com&quote=<%=post.title%>"><i class="fab fa-facebook"></i></a></p>
+    </div>
+</div>
+
+<!-- For nav bar -->
+<script src="/js/nav_fix.js"></script>
+<%- include("../partials/footer") %> 

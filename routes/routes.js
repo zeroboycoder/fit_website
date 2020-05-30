@@ -14,4 +14,7 @@ route.get("/projects/:projectId", controllers.getProjectDetail)
 // Get Blog
 route.get("/blog", controllers.getBlog)
 
+// Get Blog Detail
+route.get("/blog/:id", controllers.getBlogDetail);
+
 module.exports = route;

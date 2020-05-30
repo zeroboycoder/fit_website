@@ -46,12 +46,33 @@ exports.getAddBlog = (req, res, next) => {
 
 // POST Add Blog
 exports.postAddBlog = (req, res, next) => {
+    const title = req.body.blogTitle;
+    const category = req.body.category;
+    const image = req.file.originalname;
     const script = req.body.script;
+    const userId = req.session.user._id;
+    const userName = req.session.user.username;
+
+    // Date Feature
+    const intiDate = new Date().toLocaleDateString();
+    const intiTime = new Date().toLocaleTimeString();
+    const time = [intiDate, intiTime].concat();
+
+    // Save post in database
     new blogModel({
-        script: script
+        title: title,
+        category: category,
+        imageUrl: image,
+        script: script,
+        userId: userId,
+        userName: userName,
+        time: time
     }).save()
         .then(success => {
             return res.redirect("/blog");
         })
-        .catch(err => new Error("Error in post add blog"))
+        .catch(err => {
+            console.log(err);
+            new Error("Error in post add blog")
+        })
 }

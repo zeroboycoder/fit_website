@@ -2,6 +2,20 @@
 <link rel="stylesheet" href="/css/resources/blog.css"> 
 <%- include("../partials/nav") %> 
 
+<div class="blog">
+    <% posts.forEach(post => { %>
+        <a href="/blog/<%=post._id%>" class="postLink">
+            <div class="row postBox">
+                <div class="col span-1-of-2">
+                    <h1 class="postTitle"><%=post.title%></h1>
+                </div>
+                <div class="col span-1-of-2">
+                    <img class="postImg" src="/images/blog/<%=post.imageUrl%>" alt="">
+                </div>
+            </div>
+        </a>
+    <% }) %> 
+</div>
 
 <!-- For nav bar -->
 <script src="/js/nav_fix.js"></script>

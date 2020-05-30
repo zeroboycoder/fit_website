@@ -1,11 +1,23 @@
 const express = require("express");
+const app = express();
 const route = express.Router();
 const multer = require("multer");
 const adminController = require("../controllers/adminController");
 
-const fileStorage = multer.diskStorage({
+const fileStorageForProject = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "images");
+        cb(null, "images/project");
+    },
+    filename: (req, file, cb) => {
+        cb(
+            null, file.originalname
+        );
+    },
+});
+
+const fileStorageForBlog = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "images/blog");
     },
     filename: (req, file, cb) => {
         cb(
@@ -30,12 +42,12 @@ const fileFilter = (req, file, cb) => {
 route.get("/add-project", adminController.getAddProject);
 
 // Post Add Project Route
-route.post("/postAddProject", multer({ storage: fileStorage, fileFilter: fileFilter }).array("imageUrl", 2), adminController.postAddProject);
+route.post("/postAddProject", multer({ storage: fileStorageForProject, fileFilter: fileFilter }).array("imageUrl", 2), adminController.postAddProject);
 
 // Get Add Blog
 route.get("/add-blog", adminController.getAddBlog)
 
 // POST Add Blog
-route.post("/add-blog", adminController.postAddBlog)
+route.post("/add-blog", multer({ storage: fileStorageForBlog, fileFilter: fileFilter }).single("imageUrl"), adminController.postAddBlog)
 
 module.exports = route;

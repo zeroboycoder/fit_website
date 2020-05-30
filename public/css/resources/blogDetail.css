@@ -1,0 +1,43 @@
+h1,
+h2,
+h3 {
+	text-align: left;
+	margin: 8px 0;
+}
+
+h1::after,
+h2::after,
+h3::after {
+	width: 0;
+	height: 0;
+	margin: 0;
+}
+
+.blog {
+	width: 70%;
+	margin: 75px auto 0 auto;
+}
+
+.blogImg {
+	width: 100%;
+	height: auto;
+}
+
+.title {
+	margin: 15px 0 0 0;
+	font-weight: bold;
+}
+
+.postInfo {
+	margin: 3px 0 18px 0;
+}
+
+.postInfo span {
+	color: #555;
+	margin-right: 10px;
+}
+
+.fa-facebook {
+	margin-left: 10px;
+	font-size: 22px;
+}

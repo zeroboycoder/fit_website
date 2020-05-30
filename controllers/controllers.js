@@ -60,9 +60,6 @@ exports.getProjectDetail = (req, res, next) => {
 
 // Get Blog
 exports.getBlog = (req, res, next) => {
-  res.setHeader(
-    "Content-Type", "application/json"
-  )
   blogModel.find()
     .then(posts => {
       res.render("views/blog", {
@@ -72,4 +69,18 @@ exports.getBlog = (req, res, next) => {
       })
     })
     .catch(err => new Error("Error in get blog"));
+}
+
+// Get Blog Detail
+exports.getBlogDetail = (req, res, next) => {
+  const postId = req.params.id;
+  blogModel.findOne({ _id: postId })
+    .then(post => {
+      res.render("views/blogDetail", {
+        title: post.title,
+        route: "/blog",
+        post: post
+      })
+    })
+    .catch(err => console.log(err))
 }
