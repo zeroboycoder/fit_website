@@ -44,14 +44,14 @@
             <div style="margin-left: auto; margin-right: 0; display: flex;">
                 <% if(!isAuthenticated){ %>
                     <li class="nav-list">
-                        <a href="/auth/sign-up" class="nav-item <%= route === '/sign-up' ? 'active' : '' %> ">SIGN UP<i class="far fa-user" style="margin-left: 0.7rem;"></i></a>
+                        <a href="/auth/sign-up" class="nav-item <%= route === '/sign-up' ? 'active' : '' %> ">SIGN UP</a>
                     </li>
                     <li class="nav-list">
-                        <a href="/auth/login" class="nav-item <%= route === '/login' ? 'active' : '' %> ">LOG IN<i class="far fa-user" style="margin-left: 0.7rem;"></i></a>
+                        <a href="/auth/login" class="nav-item <%= route === '/login' ? 'active' : '' %> ">LOG IN</a>
                     </li>
                 <% } else { %>
                     <li class="nav-list">
-                        <a href="/auth/logout" class="nav-item ">LOG OUT<i class="far fa-user" style="margin-left: 0.7rem;"></i></a>
+                        <a href="/auth/logout" class="nav-item ">LOG OUT</a>
                     </li>
                 <% } %>
             </div>

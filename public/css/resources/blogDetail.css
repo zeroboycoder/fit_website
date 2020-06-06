@@ -14,30 +14,64 @@ h3::after {
 }
 
 .blog {
-	width: 70%;
-	margin: 75px auto 0 auto;
+	width: 65%;
+	margin: 75px auto;
+	position: relative;
 }
 
-.blogImg {
-	width: 100%;
-	height: auto;
+.blog__textBox {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
 }
 
-.title {
-	margin: 15px 0 0 0;
-	font-weight: bold;
+.blog__textBox__stick {
+	width: 5px;
+	height: 70px;
+	background-color: #084038;
+	margin-right: 10px;
+	border-radius: 17px;
 }
 
-.postInfo {
-	margin: 3px 0 18px 0;
+.blog__textBox__text h1 {
+	margin: 0;
+	color: #050b65;
+	font: 700 40px/50px 'Playfair Display', serif;
 }
 
 .postInfo span {
-	color: #555;
+	color: #b86b45;
 	margin-right: 10px;
+	font: 400 15px 'Maven Pro', sans-serif;
 }
 
-.fa-facebook {
+.blogImg {
+	width: 80%;
+	height: auto;
+	margin: 20px 10% 25px 10%;
+	border: 1px solid #ccc;
+}
+
+.script * {
+	font-family: 'Maven Pro', sans-serif;
+}
+
+.script p {
+	font-size: 16px;
+}
+
+.share {
+	position: absolute;
+	right: 10px;
+}
+
+.share p {
+	color: #050b65;
+	font: 600 16px 'Maven Pro', sans-serif;
+	letter-spacing: 0.8px;
+}
+
+.share p i {
 	margin-left: 10px;
 	font-size: 22px;
 }

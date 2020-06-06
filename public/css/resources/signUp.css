@@ -18,3 +18,13 @@ form h2::after {
 	width: 0;
 	height: 0;
 }
+
+input[type=submit] {
+	background-color: #084038;
+	color: white;
+}
+
+input[type=submit]:hover {
+	background-color: #022923;
+	color: white;
+}

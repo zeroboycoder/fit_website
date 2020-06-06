@@ -60,12 +60,26 @@ exports.getProjectDetail = (req, res, next) => {
 
 // Get Blog
 exports.getBlog = (req, res, next) => {
+  const page = +req.query.page || 1;
+  let totalPosts;
+  const postPerPage = 2;
   blogModel.find()
+    .countDocuments()
+    .then(numberofPost => {
+      totalPosts = numberofPost;
+      return blogModel.find().sort({ _id: -1 }).skip((page - 1) * postPerPage).limit(postPerPage)
+    })
     .then(posts => {
       res.render("views/blog", {
         title: "Blogs",
         route: "/blog",
-        posts: posts
+        posts: posts,
+        hasPreviousPage: page - 1 > 0,
+        hasNextPage: totalPosts > (page * postPerPage),
+        nextPage: page + 1,
+        previousPage: page - 1,
+        currentPage: page,
+        lastPage: Math.ceil(totalPosts / postPerPage)
       })
     })
     .catch(err => new Error("Error in get blog"));
@@ -79,7 +93,7 @@ exports.getBlogDetail = (req, res, next) => {
       res.render("views/blogDetail", {
         title: post.title,
         route: "/blog",
-        post: post
+        post: post,
       })
     })
     .catch(err => console.log(err))
