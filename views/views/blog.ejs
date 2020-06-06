@@ -9,7 +9,7 @@
         <% posts.forEach(post => { %>
             <div class="row postBox">
                 <div class="col span-1-of-2">
-                    <h1 class="postTitle"><%=post.title%></h1>
+                    <h1 class="postTitle"><%=post.title.substring(0,40)%> ...</h1>
                     <div class="script">
                         <%- post.script.toString().substring(0,200) %> ....
                     </div>
