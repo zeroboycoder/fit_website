@@ -25,13 +25,13 @@ h3::after {
 	margin-bottom: 15px;
 }
 
-.blog__textBox__stick {
+/* .blog__textBox__stick {
 	width: 5px;
 	height: 70px;
 	background-color: #084038;
 	margin-right: 10px;
 	border-radius: 17px;
-}
+} */
 
 .blog__textBox__text h1 {
 	margin: 0;
