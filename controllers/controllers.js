@@ -61,13 +61,17 @@ exports.getProjectDetail = (req, res, next) => {
 // Get Blog
 exports.getBlog = (req, res, next) => {
   const page = +req.query.page || 1;
+  const category = req.query.category || "all";
+  const sort = req.query.sort || "default";
   let totalPosts;
   const postPerPage = 2;
   blogModel.find()
     .countDocuments()
     .then(numberofPost => {
       totalPosts = numberofPost;
-      return blogModel.find().sort({ _id: -1 }).skip((page - 1) * postPerPage).limit(postPerPage)
+      return (category === "all" && (sort === "default" || sort === "newToOld")) ?
+        blogModel.find().sort({ _id: -1 }).skip((page - 1) * postPerPage).limit(postPerPage) :
+        blogModel.find({ category: category }).sort({ _id: 1 }).skip((page - 1) * postPerPage).limit(postPerPage)
     })
     .then(posts => {
       res.render("views/blog", {
