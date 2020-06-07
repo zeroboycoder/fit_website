@@ -27,24 +27,17 @@ h3::after {
 	margin-bottom: 15px;
 }
 
-/* .blog__textBox__stick {
-	width: 5px;
-	height: 70px;
-	background-color: #084038;
-	margin-right: 10px;
-	border-radius: 17px;
-} */
-
 .blog__textBox__text h1 {
 	margin: 0 0 1rem 0;
 	color: #050b65;
-	font: 700 40px 'Playfair Display', serif;
+	font: 700 36px 'Playfair Display', serif;
 }
 
 .postInfo span {
-	color: #b86b45;
+	color: #bd7f60;
 	margin-right: 10px;
-	font: 400 15px 'Maven Pro', sans-serif;
+	font: 700 15px 'Maven Pro', sans-serif;
+	letter-spacing: 0.5px;
 }
 
 .blogImg {

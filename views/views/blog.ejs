@@ -3,86 +3,117 @@
 <%- include("../partials/nav") %> 
 
 <div class="blog">
-    <% if(posts.length <= 0) { %>
-        <h1 class="no_post_found">No posts found.</h1>
-    <% } else { %>
-        <% posts.forEach(post => { %>
-            <div class="row postBox">
-                <div class="col span-1-of-2">
-                    <h1 class="postTitle"><%=post.title.substring(0,40)%> ...</h1>
-                    <div class="script">
-                        <%- post.script.toString().substring(0,200) %> ....
-                    </div>
-                    <a href="/blog/<%=post._id%>" class="postLink">See More</a>
-                </div>
-                <div class="col span-1-of-2">
-                    <img class="postImg" src="/images/blog/<%=post.imageUrl%>" alt="">
-                </div>
+    <div class="filter_button">
+        <button class="filter_btn" onclick="clicked()">Filter</button>
+    </div>
+    <div class="blog__filter">
+        <form action="/blog" method="GET">
+            <div class="choice">
+                <label for="category">Category : </label>
+                <select name="category" id="category">
+                    <option value="all">All</option>
+                    <option value="web">Web</option>
+                    <option value="android">Android</option>
+                    <option value="java">Java</option>
+                </select>
             </div>
-        <% }) %> 
-    
-        <div class="pagination-section">
-            <!-- Previous Button -->
-            <% if(hasPreviousPage){ %>
-                <div class="direction">
-                    <a href="?page=<%=previousPage%>">Previous</a>
-                </div>
-            <% } else{ %>
-                <div class="direction"></div>
-            <% } %> 
-            <!-- Pagination Link -->
-            <div class="pagination">
-                <% if(currentPage != 1 && previousPage != 1){ %>
-                    <div>
-                        <a href="?page=1"
-                            class="paginationLink">
-                            1
-                        </a>
+            <div class="choice">
+                <label for="sort">Sort : </label>
+                <select name="sort" id="sort">
+                    <option value="default">Default</option>
+                    <option value="newToOld">Newest to Oldest</option>
+                    <option value="oldToNew">Oldest to Newest</option>
+                </select>
+            </div>
+            <div class="submit">
+                <input type="button" value="Cancle" onclick="filterCancle()" >
+                <input type="submit" value="Apply">
+            </div>
+        </form>
+    </div>
+    <div class="post_section">
+        <% if(posts.length <= 0) { %>
+            <h1 class="no_post_found">No posts found.</h1>
+        <% } else { %>
+            <% posts.forEach(post => { %>
+                <div class="row postBox">
+                    <div class="col span-1-of-2">
+                        <h1 class="postTitle"><%=post.title.substring(0,40)%> ...</h1>
+                        <div class="script">
+                            <%- post.script.toString().substring(0,200) %> ....
+                        </div>
+                        <a href="/blog/<%=post._id%>" class="postLink">See More</a>
                     </div>
-                <% } %> 
+                    <div class="col span-1-of-2">
+                        <img class="postImg" src="/images/blog/<%=post.imageUrl%>" alt="">
+                    </div>
+                </div>
+            <% }) %> 
+        
+            <div class="pagination-section">
+                <!-- Previous Button -->
                 <% if(hasPreviousPage){ %>
+                    <div class="direction">
+                        <a href="?page=<%=previousPage%>">Previous</a>
+                    </div>
+                <% } else{ %>
+                    <div class="direction"></div>
+                <% } %> 
+                <!-- Pagination Link -->
+                <div class="pagination">
+                    <% if(currentPage != 1 && previousPage != 1){ %>
+                        <div>
+                            <a href="?page=1"
+                                class="paginationLink">
+                                1
+                            </a>
+                        </div>
+                    <% } %> 
+                    <% if(hasPreviousPage){ %>
+                        <div>
+                            <a href="?page=<%=previousPage%>"
+                                class="paginationLink">
+                                <%=previousPage%>
+                            </a>
+                        </div>
+                    <% } %> 
                     <div>
-                        <a href="?page=<%=previousPage%>"
-                            class="paginationLink">
-                            <%=previousPage%>
+                        <a href="?page=<%=currentPage%>"
+                            class="paginationLink paginationLinkActive">
+                            <%=currentPage%>
                         </a>
                     </div>
-                <% } %> 
-                <div>
-                    <a href="?page=<%=currentPage%>"
-                        class="paginationLink paginationLinkActive">
-                        <%=currentPage%>
-                    </a>
+                    <% if(hasNextPage){ %>
+                        <div>
+                            <a href="?page=<%=nextPage%>"
+                                class="paginationLink">
+                                <%=nextPage%>
+                            </a>
+                        </div>
+                    <% } %> 
+                    <% if(currentPage != lastPage && nextPage != lastPage && lastPage !== 0){ %>
+                        <div>
+                            <a href="?page=<%=lastPage%>"
+                                class="paginationLink">
+                                <%=lastPage%>
+                            </a>
+                        </div>
+                    <% } %> 
                 </div>
+                <!-- Next Button -->
                 <% if(hasNextPage){ %>
-                    <div>
-                        <a href="?page=<%=nextPage%>"
-                            class="paginationLink">
-                            <%=nextPage%>
-                        </a>
+                    <div class="direction">
+                        <a href="?page=<%=nextPage%>">Next</a>
                     </div>
-                <% } %> 
-                <% if(currentPage != lastPage && nextPage != lastPage && lastPage !== 0){ %>
-                    <div>
-                        <a href="?page=<%=lastPage%>"
-                            class="paginationLink">
-                            <%=lastPage%>
-                        </a>
-                    </div>
-                <% } %> 
+                <% } else{ %>
+                    <div class="direction"></div>
+                <% } %>  %> 
             </div>
-            <!-- Next Button -->
-            <% if(hasNextPage){ %>
-                <div class="direction">
-                    <a href="?page=<%=nextPage%>">Next</a>
-                </div>
-            <% } else{ %>
-                <div class="direction"></div>
-            <% } %>  %> 
-        </div>
-    <% } %> 
+        <% } %> 
+    </div>
 </div>
 
+<script src="/js/blog.js"></script>
 <!-- For nav bar -->
 <script src="/js/nav_fix.js"></script>
 <%- include("../partials/footer") %> 
