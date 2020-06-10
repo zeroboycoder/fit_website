@@ -18,11 +18,26 @@
     <div class="script">
         <%-post.script%>
     </div>
-    <div class="share">
+    <div class="btn">
+        <button onclick="goBack()">Go Back</button>
         <p>Share with <a href="https://www.facebook.com/sharer/sharer.php?u=https://fit07.herokuapp.com/blog/<%=post._id%>&quote=<%=post.title%>" target="_blank"><i class="fab fa-facebook-f"></i></a></p>
+    </div>
+    <hr class="line_break">
+    <div class="latest_posts">
+        <h2>Latest Posts</h2>
+        <div class="latest_post_lists">
+            <% latestPost.forEach(post => { %>
+                <div class="latest_post_list">
+                    <p class="latest_post_title">
+                        <a href="/blog/<%=post._id%>"><%=post.title%></a>
+                    </p>
+                </div>
+            <% }) %>
+        </div> 
     </div>
 </div>
 
 <!-- For nav bar -->
 <script src="/js/nav_fix.js"></script>
+<script src="/js/goBack.js"></script>
 <%- include("../partials/footer") %> 

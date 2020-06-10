@@ -12,7 +12,7 @@ app.use(express.static("public"));
 app.use("/images", express.static("images"));
 
 // const MONGO_URI = "mongodb://localhost:27017/fit";
-const MONGO_URI = "mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/fit"
+const MONGO_URI = `mongodb+srv://pyaesonekhant:Py@esonekh@nt27@cluster0-xxkux.mongodb.net/fit`
 
 const store = new mongoStore({
   uri: MONGO_URI,

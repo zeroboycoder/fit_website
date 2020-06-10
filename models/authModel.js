@@ -14,11 +14,8 @@ const authSchema = new mongoose.Schema({
         required: true
     },
     blogs: [{
-        blogId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Blogs",
-            required: true
-        }
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Blogs"
     }]
 })
 

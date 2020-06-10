@@ -15,10 +15,8 @@ h3::after {
 
 .blog {
 	width: 65%;
-	margin: 75px auto 20px auto;
-	padding-bottom: 50px;
+	margin: 75px auto 30px auto;
 	box-sizing: border-box;
-	position: relative;
 }
 
 .blog__textBox {
@@ -54,19 +52,75 @@ h3::after {
 	font-size: 16px;
 }
 
-.share {
-	position: absolute;
-	right: 10px;
-	bottom: 0;
+.btn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
 }
 
-.share p {
+.btn button {
+	background-color: #fff;
+	border: none;
+	outline: none;
+	font: 600 16px 'Maven Pro', sans-serif;
+	color: #050b65;
+	border-bottom: 1px solid transparent;
+	transition: all 0.3s;
+}
+
+.btn button:hover {
+	border-bottom: 1px solid #050b65;
+}
+
+.btn p {
 	color: #050b65;
 	font: 600 16px 'Maven Pro', sans-serif;
 	letter-spacing: 0.8px;
 }
 
-.share p i {
+.btn p i {
 	margin-left: 10px;
 	font-size: 22px;
+}
+
+.line_break {
+	width: 100%;
+	color: #333;
+	margin: 17px 0;
+}
+
+/* ============== */
+/* Latest Post */
+/* ============== */
+.latest_posts h2 {
+	color: #1d2379;
+	font: 700 28px 'Playfair Display', serif;
+	letter-spacing: 0.2px;
+}
+
+.latest_posts h2::after {
+	content: "";
+	display: block;
+	width: 145px;
+	height: 1px;
+	background-color: #1d2379;
+	margin-top: 10px;
+}
+
+.latest_post_lists {
+	margin-top: 10px;
+}
+
+.latest_post_list {
+	padding: 7px 0;
+}
+
+.latest_post_title {
+	margin: 0;
+}
+
+.latest_post_title a {
+	color: #1d2379;
+	font: 400 16px 'Maven Pro', sans-serif;
 }

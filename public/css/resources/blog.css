@@ -16,24 +16,43 @@ h3::after {
 .no_post_found {
 	text-align: center;
 	color: #aaa;
-	margin: 100px 0 50px 0;
+	margin: 140px 0 50px 0;
 }
 
 .blog {
 	width: 65%;
 	margin: 80px auto 0 auto;
 }
+/* ================ */
+/* Top Bar */
+/* ================ */
+.top_bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.brand_name h1 {
+	font: 700 34px 'Playfair Display', serif;
+	color: #050b65;
+	margin: 0;
+	letter-spacing: 0.5px;
+}
+
+.brand_name h1::after {
+	content: "";
+	display: block;
+	width: 70px;
+	height: 2px;
+	background-color: #050b65;
+	margin-top: 7px;
+}
 
 /* ================ */
 /* Filter */
 /* ================ */
-.filter_button {
-	position: relative;
-}
-
 .filter_btn {
-	position: absolute;
-	right: 10px;
 	outline: none;
 	border: none;
 	padding: 3px 8px 3px 0;
@@ -60,7 +79,7 @@ h3::after {
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
-	padding: 20px 30px 72px 30px;
+	padding: 20px 20px 72px 20px;
 	box-sizing: border-box;
 	background-color: #fff;
 	border: 1px solid #084038;
@@ -81,7 +100,8 @@ h3::after {
 .choice label {
 	display: block;
 	color: #084038;
-	font: 700 18px 'Playfair Display', serif;
+	font: 600 16px 'Maven Pro', sans-serif;
+	letter-spacing: 0.4px;
 }
 
 .choice select {
@@ -110,38 +130,48 @@ h3::after {
 	transition: all 0.3s;
 }
 
+.submit input:hover {
+	box-shadow: 2px 2px 5px #11198a;
+}
+
 .submit input:nth-child(1) {
 	border: 1px solid #aaa;
 	background-color: #ccc;
 	color: black;
 }
 
-.submit input:hover {
+.submit input:nth-child(1):hover {
 	box-shadow: 2px 2px 5px #aaa;
 }
 
 /* ============= */
 /* For Posts */
 /* ============= */
-
-.col:nth-child(1) {
-	position: relative;
-}
-
-.post_section {
-	padding-top: 40px;
-}
-
 .postBox {
 	width: 100%;
-	height: auto;
+	height: 250px;
+	display: flex;
+	flex-flow: row;
 	margin: 15px 0 25px 0;
-	padding: 10px;
+	padding: 15px 10px;
 	box-sizing: border-box;
 	border-radius: 15px;
 	border: 1px solid #ccc;
 	box-shadow: 2px 2px 5px #cfcfcf;
 	transition: all 0.3s;
+}
+
+.text {
+	padding: 0 3px 0 7px;
+	box-sizing: border-box;
+	width: 50%;
+	position: relative;
+}
+
+.img {
+	width: 50%;
+	display: flex;
+	align-items: center;
 }
 
 .postTitle {
@@ -153,7 +183,15 @@ h3::after {
 .script * {
 	color: #084038;
 	letter-spacing: 0.5px;
-	font: 400 initial 'Maven Pro', sans-serif;
+	font: 400 100% 'Maven Pro', sans-serif;
+}
+
+.postImg {
+	width: 100%;
+	max-height: 230px;
+	padding: 10px 5px;
+	box-sizing: border-box;
+	border-radius: 30px;
 }
 
 .postLink:link,
@@ -162,19 +200,14 @@ h3::after {
 	letter-spacing: 0.5px;
 	color: #b86b45;
 	position: absolute;
-	bottom: 0px;
+	bottom: 3px;
+	left: 5px;
 }
 
 .postLink:hover,
 .postLink:active {
 	text-decoration: none;
 	color: #924d2a;
-}
-
-.postImg {
-	width: 100%;
-	height: auto;
-	border-radius: 30px;
 }
 
 /* ================ */

@@ -3,48 +3,56 @@
 <%- include("../partials/nav") %> 
 
 <div class="blog">
-    <div class="filter_button">
-        <div class="filter_btn" onclick="clicked()">Filter</div>
-    </div>
-    <div class="blog__filter">
-        <form action="/blog" method="GET">
-            <div class="choice">
-                <label for="category">Category : </label>
-                <select name="category" id="category">
-                    <option value="all">All</option>
-                    <option value="web">Web</option>
-                    <option value="android">Android</option>
-                    <option value="java">Java</option>
-                </select>
+    <div class="top_bar">
+        <div class="brand_name">
+            <h1>Blog</h1>
+        </div>
+        <div class="filter_section">
+            <div class="filter_button">
+                <div class="filter_btn" onclick="clicked()">Filter</div>
             </div>
-            <div class="choice">
-                <label for="sort">Sort : </label>
-                <select name="sort" id="sort">
-                    <option value="default">Default</option>
-                    <option value="newToOld">Newest to Oldest</option>
-                    <option value="oldToNew">Oldest to Newest</option>
-                </select>
+            <div class="blog__filter">
+                <form action="/blog" method="GET">
+                    <div class="choice">
+                        <label for="category">Category : </label>
+                        <select name="category" id="category">
+                            <option value="all">All</option>
+                            <option value="web">Web</option>
+                            <option value="android">Android</option>
+                            <option value="java">Java</option>
+                        </select>
+                    </div>
+                    <div class="choice">
+                        <label for="sort">Sort : </label>
+                        <select name="sort" id="sort">
+                            <option value="default">Default</option>
+                            <option value="newToOld">Newest to Oldest</option>
+                            <option value="oldToNew">Oldest to Newest</option>
+                        </select>
+                    </div>
+                    <div class="submit">
+                        <input type="button" value="Cancel" onclick="filterCancle()" >
+                        <input type="submit" value="Apply">
+                    </div>
+                </form>
             </div>
-            <div class="submit">
-                <input type="button" value="Cancle" onclick="filterCancle()" >
-                <input type="submit" value="Apply">
-            </div>
-        </form>
+        </div>
     </div>
     <div class="post_section">
         <% if(posts.length <= 0) { %>
             <h1 class="no_post_found">No posts found.</h1>
         <% } else { %>
             <% posts.forEach(post => { %>
-                <div class="row postBox animate__animated animate__fadeInUp">
-                    <div class="col span-1-of-2">
-                        <h1 class="postTitle"><%=post.title.substring(0,40)%> ...</h1>
+                <div class="postBox animate__animated animate__fadeInUp">
+                    <div class="text">
+                        <h1 class="postTitle"><%=post.title.substring(0,40)%></h1>
                         <div class="script">
-                            <%- post.script.toString().substring(0,200) %> ....
+                            <%- post.script.toString().substring(0,150) %>
+                            <%= post.script.toString().length > 150 ? "...." : "" %> 
                         </div>
                         <a href="/blog/<%=post._id%>" class="postLink">See More</a>
                     </div>
-                    <div class="col span-1-of-2">
+                    <div class="img">
                         <img class="postImg" src="/images/blog/<%=post.imageUrl%>" alt="">
                     </div>
                 </div>
