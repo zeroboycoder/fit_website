@@ -45,7 +45,10 @@
             <% posts.forEach(post => { %>
                 <div class="postBox animate__animated animate__fadeInUp">
                     <div class="text">
-                        <h1 class="postTitle"><%=post.title.substring(0,40)%></h1>
+                        <h1 class="postTitle">
+                            <%=post.title.substring(0,40)%>
+                            <%= post.title.toString().length > 40 ? "...." : "" %> 
+                        </h1>
                         <div class="script">
                             <%- post.script.toString().substring(0,150) %>
                             <%= post.script.toString().length > 150 ? "...." : "" %> 
