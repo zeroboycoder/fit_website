@@ -52,14 +52,14 @@ h3::after {
 	font-size: 16px;
 }
 
-.btn {
+.link {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-top: 20px;
 }
 
-.btn button {
+.link button {
 	background-color: #fff;
 	border: none;
 	outline: none;
@@ -69,25 +69,25 @@ h3::after {
 	transition: all 0.3s;
 }
 
-.btn button:hover {
+.link button:hover {
 	border-bottom: 1px solid #050b65;
 }
 
-.btn p {
+.link p {
 	color: #050b65;
 	font: 600 16px 'Maven Pro', sans-serif;
 	letter-spacing: 0.8px;
 }
 
-.btn p i {
+.link p i {
 	margin-left: 10px;
 	font-size: 22px;
 }
 
 .line_break {
 	width: 100%;
-	color: #333;
-	margin: 17px 0;
+	background-color: #bbb;
+	margin: 20px 0 17px 0;
 }
 
 /* ============== */

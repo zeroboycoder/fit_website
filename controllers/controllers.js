@@ -94,7 +94,7 @@ exports.getBlogDetail = (req, res, next) => {
   const postId = req.params.id;
   blogModel.findOne({ _id: postId })
     .then(post => {
-      blogModel.find().sort({ id: -1 }).limit(3)
+      blogModel.find().sort({ _id: -1 }).limit(3)
         .then(latestPost => {
           res.render("views/blogDetail", {
             title: post.title,
