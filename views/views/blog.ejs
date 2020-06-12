@@ -52,8 +52,9 @@
                             <%= post.title.toString().length > 40 ? "...." : "" %> 
                         </h1>
                         <div class="script">
-                            <%- post.script.toString().substring(0,150) %>
-                            <%= post.script.toString().length > 150 ? "...." : "" %> 
+                            <div class="script__text">
+                                <%- post.script %>
+                            </div>
                         </div>
                         <a href="/blog/<%=post._id%>" class="postLink">See More</a>
                     </div>
