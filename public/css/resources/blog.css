@@ -43,7 +43,7 @@ h3::after {
 .brand_name h1::after {
 	content: "";
 	display: block;
-	width: 70px;
+	width: 90px;
 	height: 2px;
 	background-color: #050b65;
 	margin-top: 7px;
@@ -158,7 +158,11 @@ h3::after {
 	border-radius: 15px;
 	border: 1px solid #ccc;
 	box-shadow: 2px 2px 5px #cfcfcf;
-	transition: all 0.3s;
+	transition: all 0.2s;
+}
+
+.postBox:hover {
+	box-shadow: 2px 2px 7px #999;
 }
 
 .text {

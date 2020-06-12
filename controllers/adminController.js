@@ -1,5 +1,6 @@
 const projectDatas = require("../models/projectModel");
 const blogModel = require("../models/blogModel");
+const authModel = require("../models/authModel");
 
 // Get Add Project
 exports.getAddProject = (req, res, next) => {
@@ -19,7 +20,7 @@ exports.postAddProject = (req, res) => {
     const description = req.body.description;
     const downloadLink = req.body.downloadLink;
     const sourceCodeLink = req.body.sourceCodeLink;
-    return new projectDatas({
+    new projectDatas({
         projectType: projectType,
         projectTitle: projectTitle,
         creator: creator,
@@ -28,9 +29,16 @@ exports.postAddProject = (req, res) => {
         description: description,
         downloadLink: downloadLink,
         sourceCodeLink: sourceCodeLink,
-    })
-        .save()
-        .then(() => res.redirect("/projects?pType=" + projectType))
+    }).save()
+        .then(project => {
+            authModel.findById(req.session.user._id)
+                .then(user => {
+                    user.projects.push(project._id);
+                    user.save();
+                    res.redirect("/projects?pType=" + projectType)
+                })
+                .catch()
+        })
         .catch((err) => {
             console.log(err);
         });
@@ -67,9 +75,16 @@ exports.postAddBlog = (req, res, next) => {
         userId: userId,
         userName: userName,
         time: time
-    }).save()
-        .then(success => {
-            return res.redirect("/blog");
+    })
+        .save()
+        .then(blog => {
+            authModel.findById(req.session.user._id)
+                .then(user => {
+                    user.blogs.push(blog._id);
+                    user.save();
+                    return res.redirect("/blog");
+                })
+                .catch()
         })
         .catch(err => {
             console.log(err);

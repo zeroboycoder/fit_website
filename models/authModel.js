@@ -13,6 +13,10 @@ const authSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    projects: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "projectDatas"
+    }],
     blogs: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Blogs"

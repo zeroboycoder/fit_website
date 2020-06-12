@@ -63,7 +63,7 @@ h3::after {
 	background-color: #fff;
 	border: none;
 	outline: none;
-	font: 600 16px 'Maven Pro', sans-serif;
+	font: 700 16px 'Maven Pro', sans-serif;
 	color: #050b65;
 	border-bottom: 1px solid transparent;
 	transition: all 0.3s;
@@ -75,7 +75,7 @@ h3::after {
 
 .link p {
 	color: #050b65;
-	font: 600 16px 'Maven Pro', sans-serif;
+	font: 700 16px 'Maven Pro', sans-serif;
 	letter-spacing: 0.8px;
 }
 
