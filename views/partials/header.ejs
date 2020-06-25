@@ -12,11 +12,30 @@
     <link rel="stylesheet" href="/css/vendor/grid.css">
     <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="/css/resources/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/vendor/prism.css">
     <script src="https://cdn.tiny.cloud/1/o4wq8ekx9ymzar11w6ydr22l0e3l3tw3p4bg2dhsgadjvdiz/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+    <script src="/js/vendor/prism.js"></script>
     <script>
-        tinymce.init({
-          selector: '#myTinyTextarea'
-        });
-      </script>
+      tinymce.init({
+        selector: '#myTinyTextarea',  // change this value according to your HTML
+        plugins: 'autoresize | autolink link | codesample | image | fullscreen',
+        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | autolink link | codesample | fullscreen | image',
+        image_caption: true,
+        autoresize_bottom_margin: 200,
+        default_link_target: "_blank",
+        codesample_languages: [
+          { text: 'HTML/XML', value: 'markup' },
+          { text: 'JavaScript', value: 'javascript' },
+          { text: 'CSS', value: 'css' },
+          { text: 'PHP', value: 'php' },
+          { text: 'Ruby', value: 'ruby' },
+          { text: 'Python', value: 'python' },
+          { text: 'Java', value: 'java' },
+          { text: 'C', value: 'c' },
+          { text: 'C#', value: 'csharp' },
+          { text: 'C++', value: 'cpp' },
+          { text: 'EJS', value: 'ejs' }
+        ],
+    });
+    </script>
     
