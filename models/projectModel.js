@@ -26,8 +26,7 @@ const projectSchema = new mongoose.Schema({
         required: true
     },
     downloadLink: {
-        type: String,
-        required: true
+        type: String
     },
     sourceCodeLink: {
         type: String,

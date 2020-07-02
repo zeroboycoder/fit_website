@@ -9,7 +9,7 @@
             <img src="/images/projects/<%=project.iconUrl%>" alt="">
         </div>
         <div class="text">
-            <h2><%=project.projectTitle%> </h2>
+            <h2 style="text-align: left;"><%=project.projectTitle%> </h2>
             <h3>Developer : <%=project.creator%> </h3>
         </div>
     </div>
@@ -36,7 +36,9 @@
             <div></div>
         </div>
         <div class="nine_of_twelve">
-            <a href="<%=project.downloadLink%>" target="_blank" class="btn btn_orange">Download</a> <br />
+            <a href="<%= project.downloadLink ? project.downloadLink : '#' %> " target="_blank" class="btn <%= project.downloadLink ? 'btn_orange' : 'btn_disabled' %> " aria-disabled="true">
+                <%= project.projectType === "web"? "Demo Link" : "Download" %> 
+            </a> <br />
             <a href="<%=project.sourceCodeLink%>" target="_blank" class="btn btn_green">Source Code</a>
         </div>
     </div>

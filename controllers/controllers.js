@@ -1,5 +1,6 @@
 const projectDatas = require("../models/projectModel");
 const blogModel = require("../models/blogModel")
+const authModel = require("../models/authModel");
 
 // Index Page
 exports.getIndex = (req, res) => {
@@ -104,5 +105,13 @@ exports.getBlogDetail = (req, res, next) => {
           })
         })
     })
+    .catch(err => console.log(err))
+}
+
+// Get User Profile
+exports.getUserProfile = (req, res, next) => {
+  const userId = req.params.userId;
+  authModel.findById(userId).populate("blogs").exec()
+    .then(blogs => console.log(blogs._id))
     .catch(err => console.log(err))
 }

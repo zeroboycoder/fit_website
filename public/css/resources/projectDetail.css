@@ -163,3 +163,13 @@
 	color: #fff;
 	transform: scale(1.1);
 }
+
+.btn_disabled {
+	background-color: #707070;
+	border: 1px solid #707070;
+}
+
+.btn_disabled:hover {
+	color: #fff;
+	cursor: not-allowed;
+}
